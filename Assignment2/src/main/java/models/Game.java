@@ -13,15 +13,25 @@ public class Game {
 
     public java.util.List<java.util.List<Card>> cols = new ArrayList<>();
 
+    public int score;
 
     public Game(){
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
+        score = 0;
     }
 
 
+
+
+    public void addToScore(int temp){
+        score = score + temp;
+    }
+
+
+    public int getScore(){return score;}
 
 
 
