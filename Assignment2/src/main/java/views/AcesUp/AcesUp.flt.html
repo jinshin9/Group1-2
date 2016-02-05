@@ -104,7 +104,7 @@
 
 
     <div id="score">Score
-        <br><textarea style="background-color: #002200; color: #ccffcc" id="scoreBoard"></textarea>
+        <br><textarea id="scoreBoard" disabled=true></textarea>
     </div>
 
     <button id="dealButton">Deal</button>
@@ -135,7 +135,6 @@ $( '.columnOfCards .cardLocation' ).html("");
         $( '#c3 .l'+key ).html(val.value + val.suit);
     });
 
-    document.getElementById("scoreBoard").innerHTML = game.score;
 
 }
 

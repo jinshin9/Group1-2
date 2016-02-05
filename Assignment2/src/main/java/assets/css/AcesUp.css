@@ -14,6 +14,11 @@ font-weight: bold;
 
 }
 
+textarea{
+background-color: #002200;
+color: #ccffcc;
+}
+
 .cardLocation{
 width: 100px;
 background-color:#0a1c01;

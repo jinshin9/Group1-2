@@ -13,25 +13,23 @@ public class Game {
 
     public java.util.List<java.util.List<Card>> cols = new ArrayList<>();
 
-    public int tempScore;
-    public String score;
+    public int score;
 
     public Game(){
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
-        tempScore = 0;
-        score = "0";
+        score = 0;
     }
 
 
     public void addToScore(int temp){
-        tempScore += temp;
-        score = Integer.toString(tempScore);
+      score = score + temp;
     }
 
-    public String getScore(){return score;}
+
+    public int getScore(){return score;}
 
 
 
@@ -164,8 +162,7 @@ public class Game {
     }
 
     private void removeCardFromCol(int colFrom) {
-        Card cardToAdd = getTopCard(colFrom);
-        addToScore(cardToAdd.getValue());
+        this.addToScore(1);
         this.cols.get(colFrom).remove(this.cols.get(colFrom).size()-1);
         //I think that should conflict...
         //Did it work yet?
