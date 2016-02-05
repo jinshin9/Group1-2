@@ -37,9 +37,12 @@ h1 {
 }
 
 #score {
-    margin-left: 570px;
-    margin-top: 100px;
+    margin-left: 20px;
+    /*margin-top: 100px;*/
     font-size: 200%;
+    float: left;
+    display: block;
+
 }
 
 /* Title: Column 0, 1, 2, 3 */
@@ -55,7 +58,7 @@ input[type="text"] {
 
 
 #largeTable {
-    display: block;
+    display: inline-block;
     width: 560px;
     float: left;
    }
@@ -76,6 +79,7 @@ button {
 #moveBox {
     margin-left: 12%;
     float: left;
+    margin-top: 30%;
 }
 
 /* Deal button */
@@ -94,7 +98,9 @@ button {
 	font-weight:bold;
 	padding:11px 37px;
 	text-decoration:none;
-	margin-top: 250px;
+	margin-top: 90px;
+	float: left;
+
 }
 
 #dealButton:hover {
@@ -125,10 +131,12 @@ button {
 	font-weight:bold;
 	padding:6px 12px;
 	text-decoration:none;
+
 }
 
 .remove:hover, #moveButton:hover {
-	background-color:#000000;
+	background-color:#ffffff;
+	color: #000000;
 }
 
 .remove:active, #moveButton:active {
@@ -137,4 +145,27 @@ button {
 }
 /* Add additional stylesheets below
 -------------------------------------------------- */
+#menu{
 
+    float: right;
+    position: relative;
+    /*background-color: red;*/
+    width: 130px;
+    height: 500px;
+
+}
+.menuclass{
+    text-align: center;
+}
+h3 {
+    /*text-align: center;
+    font-family: Arial;
+    font-size: 40px;
+    margin-top: 0px;*/
+    text-align: center;
+    font-family: titleFont;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 200%;
+    text-shadow: 0 0 0.2em #FFFFFF, 0 0 1em #BDFFA3;
+}
