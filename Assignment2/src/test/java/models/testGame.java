@@ -62,6 +62,27 @@ public class testGame {
         assertEquals(0,g.cols.get(2).size());
     }
 
+    @Test
+    public void testGetScore() {
+        Game g = new Game();
+        g.buildDeck();
+        assertEquals(0, g.getScore());
+    }
 
+    @Test
+    public void testAddScore(){
+        Game g = new Game();
+        g.buildDeck();
+        g.addToScore(5);
+        assertEquals(5, g.getScore());
+    }
 
+    @Test
+    public void testAddCardValueToScore(){
+        Game g = new Game();
+        Card c = new Card(3, null);
+        g.buildDeck();
+        g.addToScore(c.getValue());
+        assertEquals(c.getValue(), g.getScore());
+    }
 }

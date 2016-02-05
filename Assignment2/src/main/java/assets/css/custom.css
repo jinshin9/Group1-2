@@ -52,7 +52,11 @@ input[type="text"] {
     width: 50px;
     margin: 5px;
 }
-
+textarea {
+    resize: none;
+    font-size: 25px;
+    width: 100px;
+}
 
 #largeTable {
     display: block;
