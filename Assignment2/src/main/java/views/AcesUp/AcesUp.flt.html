@@ -110,6 +110,8 @@
         <button id="dealButton">Deal</button>
     </div>
 
+    <div id="errorCode"></div>
+
     <script>
 
 var game;
@@ -135,7 +137,8 @@ $( '.columnOfCards .cardLocation' ).html("");
         $( '#c3 .l'+key ).html(val.value + val.suit);
     });
 
-
+ document.getElementById("errorCode").innerHTML = game.errorCode;
+ document.getElementById("errorCode").style.color = "red";
 
 }
 
