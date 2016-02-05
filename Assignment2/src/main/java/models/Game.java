@@ -22,19 +22,16 @@ public class Game {
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
-        score = 0;
+        score=0;
         errorCode=" ";
     }
 
 
-
-
-    public void addToScore(int temp){
-        score = score + temp;
+    public void addToScore(int newNum){
+        score += newNum;
     }
 
 
-    public int getScore(){return score;}
 
     public void buildDeck() {
         for(int i = 2; i < 15; i++){
@@ -95,6 +92,7 @@ public class Game {
             }
             if (removeCard) {
                 this.cols.get(columnNumber).remove(this.cols.get(columnNumber).size() - 1);
+                addToScore(1);
                 errorCode=" ";
                 return;
             }

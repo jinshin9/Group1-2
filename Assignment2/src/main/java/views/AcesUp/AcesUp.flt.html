@@ -103,9 +103,8 @@
      -->
     <div id = "menu">
         <h3>Menu</h3>
-        <div id="score">Score
-            <br><textarea id="scoreBoard" disabled=true></textarea>
-        </div>
+        <div id="score">Score</div>
+        <div id="scoreBoard"></div>
         <div id="moveBox" class = "menuclass"><button id="moveButton">Move</button><BR>from column<BR><input type="text" id="from_col"  /><BR> to <BR><input type="text" id="to_col"  /> </div>
         <button id="dealButton">Deal</button>
     </div>
@@ -136,7 +135,7 @@ $( '.columnOfCards .cardLocation' ).html("");
  $.each(game.cols[3], function( key, val ) {
         $( '#c3 .l'+key ).html(val.value + val.suit);
     });
-
+ document.getElementById("scoreBoard").innerHTML = game.score;
  document.getElementById("errorCode").innerHTML = game.errorCode;
  document.getElementById("errorCode").style.color = "red";
 
