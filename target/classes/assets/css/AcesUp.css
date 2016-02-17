@@ -1,0 +1,21 @@
+tr{
+width:500px;
+}
+
+td{
+font-weight: bold;
+width:100px;
+height:25px;
+text-align:center;
+}
+
+.title{
+font-weight: bold;
+
+}
+
+.cardLocation{
+width: 100px;
+background-color:#0a1c01;
+color: #B4FF95;
+}
