@@ -38,6 +38,7 @@ public class ApplicationController {
     
     public Result gameGet(){
         Game g = new Game();
+        g.mode=1;
         g.buildDeck();
         g.shuffle();
         g.dealFour();
@@ -49,6 +50,14 @@ public class ApplicationController {
         if(context.getRequestPath().contains("deal")){
             g.dealFour();
         }
+        return Results.json().render(g);
+    }
+
+    public Result newGame(Context context, @PathParam("modeNum") int modeNum, Game g) {
+
+        g.mode=modeNum;
+        g.refresh();
+
         return Results.json().render(g);
     }
 

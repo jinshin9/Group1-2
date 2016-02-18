@@ -103,10 +103,10 @@
     <div id = "menu">
         <h3>Menu</h3>
         <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Decks</button>
+            <button onclick="myFunction()" class="dropbtn">NewGame</button>
             <div id="myDropdown" class="dropdown-content">
-                <a href="#">American Deck</a>
-                <a href="#">Spanish Deck</a>
+                <button id="AmDeck">American Deck</button>
+                <button id="SpanDeck">Spanish Deck</button>
             </div>
         </div>
         <div id="score">Score</div>
@@ -124,6 +124,8 @@ toggle between hiding and showing the dropdown content */
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
+
+
 
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
@@ -174,6 +176,32 @@ $.getJSON("http://localhost:8080/game", function( data ) {
 display(data);
 game = data;
 });
+
+
+
+
+function changeMode(modeNum){
+$.ajax({
+type: "POST",
+url: "/chMode/"+modeNum,
+data: JSON.stringify(game),
+success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+game = data;
+display(data);},
+contentType:"application/json; charset=utf-8",
+dataType:"json",
+});
+
+}
+
+$("#AmDeck").click(function(){
+    changeMode(1);
+});
+$("#SpanDeck").click(function(){
+    changeMode(2);
+});
+
+
 
 
 $("#dealButton").click(function(){

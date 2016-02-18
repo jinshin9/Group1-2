@@ -15,7 +15,8 @@ public class Game {
 
     public int score;
 
-    public int mode = 1;
+    public int mode;
+
 
     public String errorCode;
 
@@ -24,6 +25,19 @@ public class Game {
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
         cols.add(new ArrayList<Card>());
+        score=0;
+        errorCode=" ";
+    }
+
+    public void refresh(){
+        cols.get(0).clear();
+        cols.get(1).clear();
+        cols.get(2).clear();
+        cols.get(3).clear();
+        deck.clear();
+        buildDeck();
+        shuffle();
+        dealFour();
         score=0;
         errorCode=" ";
     }
@@ -109,11 +123,9 @@ public class Game {
                 this.cols.get(columnNumber).remove(this.cols.get(columnNumber).size() - 1);
                 addToScore(1);
                 errorCode=" ";
-                return;
             }
             else{
                 errorCode="That card is not valid to remove!";
-                return;
             }
 
         }
@@ -123,10 +135,7 @@ public class Game {
     }
 
     private boolean colHasCards(int colNumber) {
-        if(this.cols.get(colNumber).size()>0){
-            return true;
-        }
-        return false;
+        return this.cols.get(colNumber).size()>0;
     }
 
     private Card getTopCard(int columnNumber) {
