@@ -42,6 +42,18 @@ public class Game {
         }
     }
 
+    public void buildSpanishDeck() {
+        for (int i = 1; i < 13; i++) {
+            if (i < 7 || i > 9) {
+                deck.add(new Card(i, Suit.Cups));
+                deck.add(new Card(i, Suit.Clubs));
+                deck.add(new Card(i, Suit.Coins));
+                deck.add(new Card(i, Suit.Swords));
+            }
+        }
+    }
+
+
 
 
 
