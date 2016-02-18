@@ -15,6 +15,8 @@ public class Game {
 
     public int score;
 
+    public int mode;
+
     public String errorCode;
 
     public Game(){
@@ -24,6 +26,17 @@ public class Game {
         cols.add(new ArrayList<Card>());
         score=0;
         errorCode=" ";
+    }
+
+    public refresh(){
+        cols.get(0).clear();
+        cols.get(1).clear();
+        cols.get(2).clear();
+        cols.get(3).clear();
+        deck.clear();
+        buildDeck();
+        dealFour();
+        score=0;
     }
 
 
