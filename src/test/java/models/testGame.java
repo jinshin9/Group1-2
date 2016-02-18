@@ -19,7 +19,12 @@ public class testGame {
     public void testGameBuildDeck(){
         Game g = new Game();
         g.buildDeck();
-        assertEquals(52,g.deck.size());
+        if(g.mode == 1){
+            assertEquals(52,g.deck.size());
+        }
+        if(g.mode == 2){
+            assertEquals(40,g.deck.size());
+        }
     }
 
     @Test
