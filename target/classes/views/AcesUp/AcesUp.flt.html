@@ -102,8 +102,16 @@
      -->
     <div id = "menu">
         <h3>Menu</h3>
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">NewGame</button>
+            <div id="myDropdown" class="dropdown-content">
+                <button id="AmDeck">American Deck</button>
+                <button id="SpanDeck">Spanish Deck</button>
+            </div>
+        </div>
         <div id="score">Score</div>
-        <div id="scoreBoard"></div>
+        <br><br>
+        <textarea id="scoreBoard" disabled="true"></textarea>
         <div id="moveBox" class = "menuclass"><button id="moveButton">Move</button><BR>from column<BR><input type="text" id="from_col"  /><BR> to <BR><input type="text" id="to_col"  /> </div>
         <button id="dealButton">Deal</button>
     </div>
@@ -111,6 +119,30 @@
     <div id="errorCode"></div>
 
     <script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
 
 var game;
 
@@ -144,6 +176,32 @@ $.getJSON("http://localhost:8080/game", function( data ) {
 display(data);
 game = data;
 });
+
+
+
+
+function changeMode(modeNum){
+$.ajax({
+type: "POST",
+url: "/chMode/"+modeNum,
+data: JSON.stringify(game),
+success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
+game = data;
+display(data);},
+contentType:"application/json; charset=utf-8",
+dataType:"json",
+});
+
+}
+
+$("#AmDeck").click(function(){
+    changeMode(1);
+});
+$("#SpanDeck").click(function(){
+    changeMode(2);
+});
+
+
 
 
 $("#dealButton").click(function(){

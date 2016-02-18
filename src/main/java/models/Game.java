@@ -17,6 +17,7 @@ public class Game {
 
     public int mode;
 
+
     public String errorCode;
 
     public Game(){
@@ -28,15 +29,17 @@ public class Game {
         errorCode=" ";
     }
 
-    public refresh(){
+    public void refresh(){
         cols.get(0).clear();
         cols.get(1).clear();
         cols.get(2).clear();
         cols.get(3).clear();
         deck.clear();
         buildDeck();
+        shuffle();
         dealFour();
         score=0;
+        errorCode=" ";
     }
 
 
@@ -45,26 +48,27 @@ public class Game {
     }
     public int getScore(){return score;}
 
-
     public void buildDeck() {
-        for(int i = 2; i < 15; i++){
-            deck.add(new Card(i,Suit.Clubs));
-            deck.add(new Card(i,Suit.Hearts));
-            deck.add(new Card(i,Suit.Diamonds));
-            deck.add(new Card(i,Suit.Spades));
-        }
-    }
-
-    public void buildSpanishDeck() {
-        for (int i = 1; i < 13; i++) {
-            if (i < 7 || i > 9) {
-                deck.add(new Card(i, Suit.Cups));
+        if(mode == 1) {
+            for (int i = 2; i < 15; i++) {
                 deck.add(new Card(i, Suit.Clubs));
-                deck.add(new Card(i, Suit.Coins));
-                deck.add(new Card(i, Suit.Swords));
+                deck.add(new Card(i, Suit.Hearts));
+                deck.add(new Card(i, Suit.Diamonds));
+                deck.add(new Card(i, Suit.Spades));
+            }
+        }
+        if(mode == 2) {
+            for (int j = 1; j < 13; j++) {
+                if (j < 7 || j > 9) {
+                    deck.add(new Card(j, Suit.Cups));
+                    deck.add(new Card(j, Suit.Clubs));
+                    deck.add(new Card(j, Suit.Coins));
+                    deck.add(new Card(j, Suit.Swords));
+                }
             }
         }
     }
+
 
 
 
@@ -119,11 +123,9 @@ public class Game {
                 this.cols.get(columnNumber).remove(this.cols.get(columnNumber).size() - 1);
                 addToScore(1);
                 errorCode=" ";
-                return;
             }
             else{
                 errorCode="That card is not valid to remove!";
-                return;
             }
 
         }
@@ -133,10 +135,7 @@ public class Game {
     }
 
     private boolean colHasCards(int colNumber) {
-        if(this.cols.get(colNumber).size()>0){
-            return true;
-        }
-        return false;
+        return this.cols.get(colNumber).size()>0;
     }
 
     private Card getTopCard(int columnNumber) {
