@@ -30,7 +30,7 @@ public class Game {
     public void addToScore(int newNum){
         score += newNum;
     }
-
+    public int getScore(){return score;}
 
 
     public void buildDeck() {
