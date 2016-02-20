@@ -59,7 +59,7 @@ public class Game {
         }
         if(mode == 2) {
             for (int j = 1; j < 13; j++) {
-                if (j < 7 || j > 9) {
+                if (j < 8 || j > 9) {
                     deck.add(new Card(j, Suit.Cups));
                     deck.add(new Card(j, Suit.Clubs));
                     deck.add(new Card(j, Suit.Coins));
